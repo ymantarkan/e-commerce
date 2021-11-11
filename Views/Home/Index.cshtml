@@ -1,0 +1,32 @@
+﻿@using urun_katalog.Models;
+@model IEnumerable<Product>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<br>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    @item.Name
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">@item.SpecialTag.Name</h5>
+                    <img src=@item.Image  class="img-fluid" alt="">
+                    <div class="card-footer">
+                        <span><b>@item.Price₺</b></span>
+                    <a type="button" asp-action="Detail" asp-controller="Home"  asp-route-id="@item.Id" class="btn btn-primary float-right" >Details</a>
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
